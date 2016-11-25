@@ -1,0 +1,9 @@
+
+# dbfiles
+*.db
+
+# backups
+*~
+
+# env file
+.env

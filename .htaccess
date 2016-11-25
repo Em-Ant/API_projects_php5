@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^api(/.*)? api.php$1 [NC,L]
+RewriteRule ^db|server|views/.+$  / [R=302]
