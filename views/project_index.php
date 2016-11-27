@@ -8,7 +8,7 @@
     <a href="/timestamp">Timestamp</a> |&nbsp;
     <a href="/whoami">Whoami</a> |&nbsp;
     <a href="/shurl">URL Shortener</a> |&nbsp;
-    Image Search |&nbsp;
+    <a href="/imgsearch">Image Search</a> |&nbsp;
     <a href="/fileanalyse">File Analyser</a> |&nbsp;
     <a href="/quotes">Random Quotes</a>
   </ul>

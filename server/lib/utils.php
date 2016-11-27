@@ -38,7 +38,7 @@ function sendJson($data) {
     echo $_GET['callback'].'('.json_encode( $data).');';
   } else {
     header('Content-type: application/json');
-    echo json_encode( $data );
+    echo json_encode( $data, JSON_UNESCAPED_SLASHES );
   }
 }
 
@@ -68,4 +68,21 @@ function parse_json_body() {
   }
 }
 
+function read_env($file='.env') {
+  $handle = @fopen($file, 'r');
+  $vars = array();
+  if($handle) {
+    while(!feof($handle)) {
+      $line = stream_get_line($handle, 10000, "\n");
+      if(!$line || $line{0} == "#") continue;
+      list($key, $val) = explode("=",$line);
+      if(isset($key)) {
+        $val = trim($val, "\"'");
+        $vars["ENV_$key"] = $val;
+      }
+    }
+    fclose($handle);
+  }
+  return $vars;
+}
 ?>

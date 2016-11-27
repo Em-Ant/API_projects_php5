@@ -30,6 +30,11 @@ function render_view() {
       $view = 'views/fileanalyse.php';
       $title = 'File Analyser';
       break;
+    case "imgsearch" :
+      $ms_url = 'api/imgsearch';
+      $view = 'views/imgsearch.php';
+      $title = 'Image Search';
+      break;
     default :
       $view = 'views/project_index.php';
   }

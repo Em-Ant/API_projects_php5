@@ -7,6 +7,7 @@ require 'server/timestamp.php';
 require 'server/quotes.php';
 require 'server/greetings.php';
 require 'server/shurl.php';
+require 'server/imgsearch.php';
 require 'server/fileanalyse.php';
 require 'server/views_selector.php';
 
@@ -24,6 +25,8 @@ $app->route('GET','/api/greeter', 'greetings');
 $app->route('POST','/api/greeter', 'greetings');
 $app->route('POST','/api/shurl/new', 'shurl_add');
 $app->route('GET','/api/shurl/{id}', 'shurl_get_redirect');
+$app->route('GET','/api/imgsearch/latest', 'get_latest_searches');
+$app->route('GET','/api/imgsearch/{keyword}', 'search_images');
 $app->route('POST','/api/fileanalyse', 'fileanalyse');
 $app->route('GET','/api/extensions', 'extensions');
 
