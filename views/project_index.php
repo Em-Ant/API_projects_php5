@@ -5,11 +5,11 @@
   <h1 class="title">Micro-service API challenges - php5</h1>
   <h2>Projects Index</h2>
 
-    <a href="/timestamp">Timestamp</a> |&nbsp;
-    <a href="/whoami">Whoami</a> |&nbsp;
-    <a href="/shurl">URL Shortener</a> |&nbsp;
-    <a href="/imgsearch">Image Search</a> |&nbsp;
-    <a href="/fileanalyse">File Analyser</a> |&nbsp;
-    <a href="/quotes">Random Quotes</a>
+    <a href="<?=$base_url?>/timestamp">Timestamp</a> |&nbsp;
+    <a href="<?=$base_url?>/whoami">Whoami</a> |&nbsp;
+    <a href="<?=$base_url?>/shurl">URL Shortener</a> |&nbsp;
+    <a href="<?=$base_url?>/imgsearch">Image Search</a> |&nbsp;
+    <a href="<?=$base_url?>/fileanalyse">File Analyser</a> |&nbsp;
+    <a href="<?=$base_url?>/quotes">Random Quotes</a>
   </ul>
 </div>
