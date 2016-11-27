@@ -39,3 +39,10 @@ INSERT INTO 'quotes1' ('Quote_ID', 'Name', 'Quote_Category', 'Quote') VALUES
 (18, 'Zeno', 'Silence', 'Choose silence of all virtues, for by it you hear other men''s imperfections, and conceal your own.'),
 (19, 'Zimmerman', 'Success', 'In Fame''s temple there is always a niche to be found for rich dunces, importunate scoundrels or successful butchers of the human race.'),
 (20, 'Zohar', 'Creation', 'Before God manifested Himself, when all things were still hidden in Him... He began by forming an imperceptible point; that was His own thought. With this thought He then began to construct a mysterious and holy form... the Universe.');
+
+DROP TABLE IF EXISTS 'img_queries';
+CREATE TABLE IF NOT EXISTS 'img_queries' (
+  'ID' INTEGER PRIMARY KEY,
+  'term' VARCHAR(100),
+  'time' DATETIME DEFAULT CURRENT_TIMESTAMP
+);
