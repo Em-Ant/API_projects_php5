@@ -6,9 +6,10 @@ class Router
   private $_routes = array();
   private $_path = '';
 
-  function __construct($path) {
-    if(!isset($path)) $path = $_SERVER['PATH_INFO'];
-      $this->_path = '/'.trim($path, '/')."/";
+  function __construct($path=NULL) {
+    if(!isset($path))
+      $path = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : "";
+    $this->_path = '/'.trim($path, '/')."/";
   }
 
   public function route($method, $route, $handler) {
@@ -31,7 +32,7 @@ class Router
         $m = $this->match_helper($route, $match, $params);
         if($m) {
           if ($params) $GLOBALS['REQ_PARAMS'] = $params;
-          $new_path = str_replace($match, '', $path);
+          $new_path = str_replace($match, '', $this->_path);
           if($new_path !== '') $new_path = "/".trim($new_path,'/')."/";
           return $handler($new_path);
         }

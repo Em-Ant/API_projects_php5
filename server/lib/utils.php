@@ -61,11 +61,11 @@ function enable_cors() {
 }
 
 function parse_json_body() {
-  $contentType = $_SERVER['CONTENT_TYPE'];
-  if($contentType == 'application/json') {
-    $raw_body = file_get_contents('php://input');
-    $GLOBALS['REQ_BODY_JSON'] = json_decode($raw_body, true);
-  }
+  if(isset($_SERVER['CONTENT_TYPE']) &&
+    $_SERVER['CONTENT_TYPE'] == 'application/json') {
+      $raw_body = file_get_contents('php://input');
+      $GLOBALS['REQ_BODY_JSON'] = json_decode($raw_body, true);
+    }
 }
 
 function read_env($file='.env') {

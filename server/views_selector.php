@@ -1,9 +1,9 @@
 <?php
 function render_view() {
   $title = "php5 APIs|Index";
-  $view_code = $GLOBALS['REQ_PARAMS']['view'];
-  $base_url = ($_SERVER['HTTPS'] ? 'https' : 'http').
-    '://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_INFO']);
+  $view_code = isset($GLOBALS['REQ_PARAMS']) ? $GLOBALS['REQ_PARAMS']['view'] : "";
+  $base_url = (isset($_SERVER['HTTPS']) ? 'https' : 'http').
+    '://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
   switch ($view_code) {
     case "timestamp" :
       $ms_url = 'api/timestamp';
