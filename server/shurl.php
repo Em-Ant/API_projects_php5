@@ -34,12 +34,12 @@ function shurl_add($url) {
   }
   $query = $db->prepare('SELECT * FROM urls WHERE URL=:url;');
   $query->bindValue(':url', $url, SQLITE3_TEXT);
-  $url;
-  $shurl = $query->execute()->fetchArray()[0];
+  $shurl = $query->execute()->fetchArray();
+  $shurl = $shurl[0];
 
   if(!$shurl) {
     $query = $db->prepare('INSERT INTO urls (URL) VALUES (:url);');
-    $query->bindValue(':url', SQLite3::escapeString($url), SQLITE3_TEXT);
+    $query->bindValue(':url', filter_var($url, FILTER_SANITIZE_URL), SQLITE3_TEXT);
     $result = $query->execute();
     if($result) {
       $shurl = $db->lastInsertRowid();
@@ -69,7 +69,8 @@ function shurl_get_redirect($url) {
       WHERE URL_ID = :n;"
     );
     $query->bindValue(':n', $id, SQLITE3_INTEGER);
-    $url = $query->execute()->fetchArray()[0];
+    $url = $query->execute()->fetchArray();
+    $url = $url[0];
     $db->close();
     if($url) {
       // redirect

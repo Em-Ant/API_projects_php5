@@ -15,7 +15,8 @@ function quotes($params) {
       WHERE Quote_Category = :cat;"
     );
     $query->bindValue(':cat', $cat, SQLITE3_TEXT);
-    $count = $query->execute()->fetchArray()[0];
+    $count = $query->execute()->fetchArray();
+    $count = $count[0];
     $val = rand(0, $count-1);
     $query = $db->prepare(
       "SELECT Name, Quote_Category, Quote
@@ -27,7 +28,8 @@ function quotes($params) {
     $results = $query->execute();
   } else {
     $count = $db->query('SELECT COUNT(*) FROM quotes1;');
-    $count = $count->fetchArray()[0];
+    $count = $count->fetchArray();
+    $count = $count[0];
     $val = rand(1, $count);
     $results = $db->query(
       "SELECT Name, Quote_Category, Quote FROM quotes1 WHERE Quote_ID = $val;"

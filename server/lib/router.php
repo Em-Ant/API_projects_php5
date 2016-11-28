@@ -1,5 +1,4 @@
 <?php
-require_once 'server/lib/utils.php';
 
 class Router
 {
@@ -29,7 +28,7 @@ class Router
         $handler();
       }
       if ($method == $_SERVER['REQUEST_METHOD']) {
-        $m = $this->match_helper($route, $match, $params);
+        $m = $this->matchHelper($route, $match, $params);
         if($m) {
           if ($params) $GLOBALS['REQ_PARAMS'] = $params;
           $new_path = str_replace($match, '', $this->_path);
@@ -41,7 +40,7 @@ class Router
     #TODO handle not matching routes
   }
 
-  private function match_helper($route, &$match, &$params) {
+  private function matchHelper($route, &$match, &$params) {
     preg_match_all("/\{(.+)\}/", $route, $params_keys);
     $params_keys = $params_keys[1];
     $r = "/".str_replace("/", "\/", $route)."/";

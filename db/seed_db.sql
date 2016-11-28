@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS 'urls' (
   'URL_ID' INTEGER PRIMARY KEY NOT NULL,
   'URL' varchar(200) default NULL
 );
+CREATE UNIQUE INDEX 'URL_ind' ON 'urls' ('URL');
 
 INSERT INTO 'urls' ('URL_ID', 'URL') VALUES
 (1, 'https:\/\/www.google.com'),
