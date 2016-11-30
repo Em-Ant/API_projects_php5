@@ -39,12 +39,13 @@ class Router
   }
 
   private function matchHelper($route, &$params) {
-    preg_match_all("/\{(.+)\}/", $route, $params_keys);
+    preg_match_all("/\{(.+)\}/U", $route, $params_keys);
     $params_keys = $params_keys[1];
-    $r = "/".str_replace("/", "\/", $route)."\/?$/";
-    $route_regex = preg_replace("/\{.+\}/", "([^\/]+)", $r );
+    $r = "#".$route."\/$#";
+    $route_regex = preg_replace("/\{.+\}/U", "(.+)", $r );
     $m = preg_match($route_regex, $this->_path, $params_values);
     if($m) {
+      // extract and remove the matching string
       $match = array_splice($params_values,0, 1)[0];
       $params = array_combine($params_keys, $params_values);
     }
