@@ -1,6 +1,6 @@
 
  <div class="container">
-    <img src="public/M5_logo.png" alt="URL Shortener Logo"/>
+    <img src="<?=$sub_path?>/public/M5_logo.png" alt="URL Shortener Logo"/>
  </div>
  <div class="container">
    <h2>API Project: File Analyser - php5</h2>

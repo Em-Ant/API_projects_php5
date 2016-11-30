@@ -1,6 +1,6 @@
 
 <div class="container">
-   <img src="public/M6_logo.png" alt="Quotes Logo"/>
+   <img src="<?=$sub_path?>/public/M6_logo.png" alt="Quotes Logo"/>
 </div>
 
 <div class="container">

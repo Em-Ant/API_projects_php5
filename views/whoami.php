@@ -1,6 +1,6 @@
-  
+
   <div class="container">
-     <img src="public/M2_logo.png" alt="WHOAMI Logo"/>
+     <img src="<?=$sub_path?>/public/M2_logo.png" alt="WHOAMI Logo"/>
   </div>
 
   <div class="container">

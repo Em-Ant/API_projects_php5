@@ -1,6 +1,6 @@
 
   <div class="container">
-     <img src="public/M1_logo.png" alt="Timestamp Microservice"/>
+     <img src="<?=$sub_path?>/public/M1_logo.png" alt="Timestamp Microservice"/>
   </div>
 
   <div class="container">

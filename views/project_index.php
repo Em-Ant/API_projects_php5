@@ -1,5 +1,5 @@
 <div class="container">
-   <img src="public/ind.png" alt="Projects Index Logo"/>
+   <img src="<?=$sub_path?>/public/ind.png" alt="Projects Index Logo"/>
 </div>
 <div class="container">
   <h1 class="title">Micro-service API challenges - php5</h1>

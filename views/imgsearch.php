@@ -1,6 +1,6 @@
 
 <div class="container">
-   <img src="public/M4_logo.png" alt="Image Search Microservice"/>
+   <img src="<?=$sub_path?>/public/M4_logo.png" alt="Image Search Microservice"/>
 </div>
 
 <div class="container">
