@@ -15,6 +15,7 @@ $dbpath = 'db/data.db';
 $app = new Router();
 
 $app->route('ALL', NULL ,'enable_cors');
+$app->route('ALL', NULL ,'parse_json_body');
 
 $app->route('GET','/api/timestamp/{date}', 'timestamp');
 $app->route('GET','/api/timestamp', 'timestamp');
@@ -25,6 +26,11 @@ $app->route('GET','/api/shurl/{id}', 'shurl_get_redirect');
 $app->route('GET','/api/imgsearch/latest', 'get_latest_searches');
 $app->route('GET','/api/imgsearch/{keyword}', 'search_images');
 $app->route('POST','/api/fileanalyse', 'fileanalyse');
+
+$app->route('ALL', '/api/{unknown}', function(){
+  http_response_code(404);
+  sendJson(array("error" => "not found"));
+});
 
 $app->route('GET','/{view}', 'render_view');
 $app->route('GET','/', 'render_view');

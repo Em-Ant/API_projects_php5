@@ -24,10 +24,11 @@ class Router
     $params = array();
     foreach ($this->_routes as $r) {
       extract($r);
-      if ($method == 'ALL') {
-        $handler();
-      }
-      if ($method == $_SERVER['REQUEST_METHOD']) {
+      if ($method == $_SERVER['REQUEST_METHOD'] || $method == "ALL") {
+        if(is_null($route)){
+          $handler();
+          continue;
+        }
         $m = $this->matchHelper($route, $params);
         if($m) {
           return $handler($params);
