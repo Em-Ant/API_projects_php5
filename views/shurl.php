@@ -6,7 +6,7 @@
    <h2>API Project: URL Shortener - php5</h2>
    <h3>User Stories:</h3>
    <ol>
-     <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+     <li>I can POST a URL and I will receive a shortened URL in the JSON response.</li>
      <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format,
        the JSON response will contain an error instead.</li>
      <li>When I visit that shortened URL, it will redirect me to my original link..</li>

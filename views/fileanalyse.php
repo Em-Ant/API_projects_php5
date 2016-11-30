@@ -6,8 +6,8 @@
    <h2>API Project: File Analyser - php5</h2>
    <h3>User Stories:</h3>
    <ol>
-     <li>I can submit a FormData object that includes a file upload.</li>
-     <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
+     <li>I can submit a Form object that includes a file upload.</li>
+     <li>When I submit something, I will receive file infos within the JSON response.</li>
    </ol>
 
    <h3>Upload a File:</h3>
