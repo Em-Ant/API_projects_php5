@@ -29,10 +29,11 @@ function enable_cors() {
 }
 
 function parse_json_body() {
-  if(isset($_SERVER['CONTENT_TYPE']) &&
-    $_SERVER['CONTENT_TYPE'] == 'application/json') {
+  if($_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_SERVER['HTTP_CONTENT_TYPE']) &&
+    $_SERVER['HTTP_CONTENT_TYPE'] == 'application/json') {
       $raw_body = file_get_contents('php://input');
-      $GLOBALS['REQ_BODY_JSON'] = json_decode($raw_body, true);
+      $_POST = json_decode($raw_body, true);
     }
 }
 
