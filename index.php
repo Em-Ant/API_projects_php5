@@ -27,15 +27,16 @@ $app->route('GET','/api/imgsearch/latest', 'get_latest_searches');
 $app->route('GET','/api/imgsearch/{keyword}', 'search_images');
 $app->route('POST','/api/fileanalyse', 'fileanalyse');
 
-$app->route('ALL', '/api/{unknown}', function(){
-  http_response_code(404);
-  sendJson(array("error" => "not found"));
-});
+$app->route('ALL', '/api', 'api_not_found');
+$app->route('ALL', '/api/{unknown}', 'api_not_found');
 
-$app->route('GET','/{view}', 'render_view');
 $app->route('GET','/', 'render_view');
-
+$app->route('GET','/{view}', 'render_view');
 
 $app->run();
 
+function api_not_found($params) {
+  http_response_code(404);
+  sendJson(array('error' => 'not found'));
+}
 ?>
