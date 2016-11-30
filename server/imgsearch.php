@@ -1,10 +1,10 @@
 <?php
-function search_images() {
+function search_images($params) {
 
   $env = read_env();
   $apikey = $env['ENV_GOOGLE_API_KEY'];
   $cx = $env['ENV_GOOGLE_SEARCH_ENGINE'];
-  $keyword = $GLOBALS['REQ_PARAMS']['keyword'];
+  $keyword = $params['keyword'];
 
   $search_url = "https://www.googleapis.com/customsearch/v1".
     "?searchType=image&key=$apikey&cx=$cx&q=$keyword";

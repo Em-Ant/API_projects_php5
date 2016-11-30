@@ -28,22 +28,19 @@ class Router
         $handler();
       }
       if ($method == $_SERVER['REQUEST_METHOD']) {
-        $m = $this->matchHelper($route, $match, $params);
+        $m = $this->matchHelper($route, $params);
         if($m) {
-          if ($params) $GLOBALS['REQ_PARAMS'] = $params;
-          $new_path = str_replace($match, '', $this->_path);
-          if($new_path !== '') $new_path = "/".trim($new_path,'/')."/";
-          return $handler($new_path);
+          return $handler($params);
         }
       }
     }
     #TODO handle not matching routes
   }
 
-  private function matchHelper($route, &$match, &$params) {
+  private function matchHelper($route, &$params) {
     preg_match_all("/\{(.+)\}/", $route, $params_keys);
     $params_keys = $params_keys[1];
-    $r = "/".str_replace("/", "\/", $route)."/";
+    $r = "/".str_replace("/", "\/", $route)."\/?$/";
     $route_regex = preg_replace("/\{.+\}/", "([^\/]+)", $r );
     $m = preg_match($route_regex, $this->_path, $params_values);
     if($m) {

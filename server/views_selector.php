@@ -1,7 +1,8 @@
 <?php
-function render_view() {
+function render_view($params) {
+
   $title = "php5 APIs|Index";
-  $view_code = isset($GLOBALS['REQ_PARAMS']) ? $GLOBALS['REQ_PARAMS']['view'] : "";
+  $view_code = isset($params['view']) ? $params['view'] : "";
   $sub_path = preg_replace('/\/index.php.*/', '', $_SERVER['PHP_SELF']);
   $base_url = (isset($_SERVER['HTTPS']) ? 'https' : 'http').
     '://'.$_SERVER['HTTP_HOST'].$sub_path;
@@ -36,8 +37,12 @@ function render_view() {
       $view = 'views/imgsearch.php';
       $title = 'Image Search';
       break;
-    default :
+    case "" :
       $view = 'views/project_index.php';
+      break;
+    default :
+      http_response_code (404);
+      $view = 'views/not_found.php';
   }
 
 ?>
@@ -47,9 +52,9 @@ function render_view() {
 <html>
 <head>
   <title><?=$title?></title>
-  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="<?=$sub_path?>/public/favicon.ico" type="image/x-icon"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-  <link href="public/style.css" rel="stylesheet" type="text/css">
+  <link href="<?=$sub_path?>/public/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php

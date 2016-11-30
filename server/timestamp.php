@@ -1,6 +1,7 @@
 <?php
-function timestamp($path) {
-  $date_string = $GLOBALS['REQ_PARAMS']['date'];
+function timestamp($params) {
+
+  $date_string = $params['date'];
   if(preg_match("/^\d+$/", $date_string))
     $date_string = '@'.$date_string;
   $date = date_create($date_string, new DateTimeZone('UTC'));

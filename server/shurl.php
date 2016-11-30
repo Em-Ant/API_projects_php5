@@ -52,9 +52,9 @@ function shurl_add($url) {
   $db->close();
 }
 
-function shurl_get_redirect($url) {
+function shurl_get_redirect($params) {
 
-  $id = $GLOBALS['REQ_PARAMS']['id'];
+  $id = $params['id'];
   global $dbpath;
   if($id) {
     try {
