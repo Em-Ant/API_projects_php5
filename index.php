@@ -15,7 +15,6 @@ $dbpath = 'db/data.db';
 $app = new Router();
 
 $app->route('ALL', NULL ,'enable_cors');
-$app->route('ALL', NULL ,'parse_json_body');
 
 $app->route('GET','/api/timestamp/{date}', 'timestamp');
 $app->route('GET','/api/timestamp', 'timestamp');
