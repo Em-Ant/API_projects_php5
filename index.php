@@ -1,15 +1,15 @@
 <?php
 
-require_once 'server/lib/router.php';
-require_once 'server/lib/utils.php';
+require_once 'lib/router.php';
+require_once 'lib/utils.php';
 
-require_once 'server/whoami.php';
-require_once 'server/timestamp.php';
-require_once 'server/quotes.php';
-require_once 'server/shurl.php';
-require_once 'server/imgsearch.php';
-require_once 'server/fileanalyse.php';
-require_once 'server/views_selector.php';
+require_once 'controllers/whoami.php';
+require_once 'controllers/timestamp.php';
+require_once 'controllers/quotes.php';
+require_once 'controllers/shurl.php';
+require_once 'controllers/imgsearch.php';
+require_once 'controllers/fileanalyse.php';
+require_once 'controllers/indexHandler.php';
 
 $dbpath = 'db/data.db';
 $app = new Router();

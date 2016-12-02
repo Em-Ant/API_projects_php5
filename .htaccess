@@ -6,6 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule "^(.*)" "index.php/$1" [QSA,L]
 
-RewriteRule "^(db|server|views)(/.*)?$" / [F]
-
-RewriteRule "^[\._].*" / [F]
+RewriteRule !^public(/.*)?$ / [F]
