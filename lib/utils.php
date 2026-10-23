@@ -43,7 +43,7 @@ function read_env($file='.env') {
   if($handle) {
     while(!feof($handle)) {
       $line = stream_get_line($handle, 10000, "\n");
-      if(!$line || $line{0} == "#") continue;
+      if(!$line || $line[0] == "#") continue;
       list($key, $val) = explode("=",$line);
       if(isset($key)) {
         $val = trim($val, "\"'");
